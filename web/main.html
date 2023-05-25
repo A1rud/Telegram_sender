@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project X</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="icon" type="img/png" href="img/img.png">
+    <link rel="stylesheet" href="CSS/Style.css">
+    
+    
+</head>
+<body>
+    <div class="content">
+        <img src="/img/img.png" alt="icon" class="logo">
+        <h2>Telegram sender</h2>
+        <input type="text" placeholder="chat id" id="chat_id"><br>
+        <textarea type="text" id="message" placeholder="повідомлення"></textarea><br>
+        <button id="send_msg">відправити повідомленя</button>
+        <p id="result"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>></script>
+    <script type="text/javascript">
+        async function send_msg(){
+            let chat_id = document.getElementById('chat_id').value; // працює
+            let msg = document.getElementById('message').value; // працює
+
+            let result = await eel.send_message(chat_id, msg)();
+            
+             document.getElementById('result').innerHTML = result; // працює
+             document.getElementById('message').value = ""; //працює
+            }
+        $('#send_msg').click(function(){
+            send_msg();
+        })
+    </script>
+</body>
+</html>
